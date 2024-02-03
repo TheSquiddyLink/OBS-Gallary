@@ -43,7 +43,7 @@ function getElements(image, name, handle, icon){
 /**
  * This function runs an animation for the element, with the inputed style and duration
  * @param {object[]} element - An array HTML elements that will have the animation affected
- * @param {'fadeIn' | 'fadeOut' | 'slideIn' | 'slideOut'} style - A string of the type of animation 
+ * @param {'fadeIn' | 'fadeOut' | 'slideInR' | 'slideOutR' | 'slideInL' | 'slideOutL'} style - A string of the type of animation 
  * @param {number} duration - The duration of the animation in seconds
  */
 

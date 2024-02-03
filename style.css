@@ -63,15 +63,28 @@ body {
     }
 }
 
-@keyframes slideOut {
+@keyframes slideOutR {
     to {
         transform: translate(1000px, 0);
     }
 }
 
-@keyframes slideIn {
+@keyframes slideInL {
     from {
         transform: translate(-1000px, 0);
+    }
+    
+}
+
+@keyframes slideOutL {
+    to {
+        transform: translate(-1000px, 0);
+    }
+}
+
+@keyframes slideInR {
+    from {
+        transform: translate(1000px, 0);
     }
     
 }
