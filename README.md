@@ -57,5 +57,18 @@ const socials = {
     * grow
     * fadeIn
     * fadeOut
-    * slideIn
-    * slideOut
+    * slideInR
+    * slideInL
+    * slideOutR
+    * slideInL
+## Add to OBS
+1. Add Source
+2. Browser
+3. Check Local File
+4. Browse
+5. Select `index.html`
+6. Width: `800` * 
+7. Height `1000` *
+8. Remove Custom CSS
+9. Shutdown source when not visible
+*Values can be adjusted
