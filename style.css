@@ -1,0 +1,92 @@
+
+:root {
+    --width: 800px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+#image {
+    display: block;
+    width: var(--width);
+    margin:auto;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+#artist {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.socail {
+    display: flex;
+}
+
+
+#handle {
+    padding-left: 2%;
+    font-size: 27px;
+}
+#icon {
+    margin-top: 50%;
+    width: 35px;
+    display: inline-block;
+}
+
+.imgHolder {
+  
+    height: 1000px;
+}
+/* Following lines are animations */
+
+@keyframes fadeOut {
+    from {
+        opacity: 1.0;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    to {
+        transform: translate(1000px, 0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(-1000px, 0);
+    }
+    
+}
+
+@keyframes shrink {
+    to {
+        width: 0;
+    }
+}
+
+@keyframes grow {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--width);
+    }
+}
