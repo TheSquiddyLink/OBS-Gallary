@@ -1,11 +1,5 @@
-import images from './config.js'
-
-
-const ani = {
-    size: ['shrink', 'grow'],
-    slide: ['slideOut', 'slideIn'],
-    fade: ['fadeIn','fadeOut']
-}
+const artFolder = './Assets/Art/'
+const logoFolder = './Assets/Logos/'
 
 
 /**
@@ -62,8 +56,10 @@ function animation(element, style, duration){
  * @param {object} [icon] - An HTML elemnt for the artist socail icon
  */
 
-function randomImage(image, name, handle, icon){
-
+function randomImage(data, image, name, handle, icon){
+    console.log(data.artists)
+    let images = data.images
+    let artists = data.artists
     if(!image) image = document.getElementById("image");
     if(!name) name = document.getElementById("artist");
     if(!handle) handle = document.getElementById("handle");
@@ -73,14 +69,14 @@ function randomImage(image, name, handle, icon){
 
     let index = Math.floor(Math.random() *  images.length)
     console.log(index)
-    image.setAttribute("src", images[index].file)
-    let artistData = images[index].artist
-
+    image.setAttribute("src", artFolder+images[index].file)
+    let artistData = data.artists[images[index].artist]
+    console.log(artistData)
     name.innerHTML = artistData.name
 
     if(!(artistData.tag === undefined)){
-        handle.innerHTML = images[index].artist.tag
-        icon.setAttribute("src", images[index].artist.icon)
+        handle.innerHTML = artistData.tag
+        icon.setAttribute("src", logoFolder+artistData.icon)
     } else {
         handle.innerHTML = ""
         icon.setAttribute("src", "")
