@@ -1,5 +1,4 @@
 const fs = require("fs");
-const { resolve } = require("path");
 
 const readLine = require('readline');
 
