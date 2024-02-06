@@ -78,7 +78,7 @@ function randomImage(data, image, name, handle, icon){
     if(history.length > 3) history.shift()
     history.push(images[index].file)
     image.setAttribute("src", artFolder+images[index].file)
-    let artistData = data.artists[images[index].artist]
+    let artistData = artists[images[index].artist]
     console.log(artistData)
     name.innerHTML = artistData.name
 
@@ -91,8 +91,6 @@ function randomImage(data, image, name, handle, icon){
         // handle.innerHTML = "PLACEHOLDER"
         // icon.setAttribute("src", socials.tiktok)
     }
-
-
 }
 
 /**
