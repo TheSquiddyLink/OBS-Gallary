@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="create.js"></script>
+</head>
+<body>
+    <form>
+        <h2>Select Files</h2>
+        <input type="file" id="fileInput" accept=image/* webkit files multiple>
+        <select name="image" id="select"></select>
+    </form>
+    <br>
+    <button id="back">Back</button>
+    <button id="next">Next</button>
+    <form>
+        <h2>Edit Data</h2>
+        <img id="preview" style="width: 200px;">
+        <br>
+        <div id="status"></div>
+        <select name="artist" id="artistSelect"></select>
+        <button id="addImage">Add Image</button>
+    </form>
+    <br>
+    <form>
+        <h2>Add Artist</h2>
+        <label for="artistNameSelect">Artist Name:</label>
+        <select name="artistNameSelect" id="artistNameSelect" required></select>
+        <input id="artistName" type="hidden" placeholder="John Doe">
+        <lable for="tag">Tag/Handle:</lable>
+        <input name="tag" type="text" id="tag" placeholder="@john_doe">
+        <label for="icon">Socail Icon:</label>
+        <select name="icon" id="icon">
+            <option value = ""></option>
+            <option value="tiktok.png">Tik Tok</option>
+            <option value="twitch.png">Twitch</option>
+            <option value="twitter.png">Twitter</option>
+            <option value="other">Other</option>
+        </select>
+        <input id="iconValue" type="hidden" placeholder="image.png">
+        <button type="submit" id="addArtist">Update Artist</button>
+    </form>
+    <br>
+    <button id="export">Export JSON</button>
+    <div>
+        <h2>Change Log</h2>
+        <ul id="changeLog"></ul>
+    </div>
+</body>
+</html>
