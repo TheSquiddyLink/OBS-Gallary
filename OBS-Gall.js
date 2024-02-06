@@ -1,6 +1,7 @@
 const artFolder = './Assets/Art/'
 const logoFolder = './Assets/Logos/'
 
+const history = [];
 
 /**
  * @typedef {Object} elements
@@ -69,6 +70,13 @@ function randomImage(data, image, name, handle, icon){
 
     let index = Math.floor(Math.random() *  images.length)
     console.log(index)
+
+    while(history.includes(images[index].file)) {
+        index = Math.floor(Math.random() *  images.length)
+    }
+    console.log(history)
+    if(history.length > 3) history.shift()
+    history.push(images[index].file)
     image.setAttribute("src", artFolder+images[index].file)
     let artistData = data.artists[images[index].artist]
     console.log(artistData)
