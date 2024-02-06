@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\CreateConfig\\create.js",
+            "program": "${workspaceFolder}\\CreateConfig\\createConfig.js",
             "console": "externalTerminal"
         }
     ]

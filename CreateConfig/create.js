@@ -2,6 +2,8 @@ const path = '../Assets/Art/'
 
 var data
 
+var validJSON = false
+
 const statusVals = {
     error: {
         404: "404 - Image not found in directory, add file to Assets/Art",
@@ -26,21 +28,32 @@ function createArtistList(id, optional){
     if(optional){
         let item = document.createElement('option')
         let child = artistSelect.appendChild(item)
-        child.setAttribute('value', "other")
-        child.innerHTML = "Other"
+        child.setAttribute('value', "new")
+        child.innerHTML = "New"
         artistOption();
     }
 }
 
 document.addEventListener('DOMContentLoaded', load)
 async function load() {
-    data = await fetch('config.json')
-    data = await data.json()
+    try{
+        data = await fetch('config.json')
+        data = await data.json()
+        console.log('JSON Found')
+        validJSON = true
+    } catch(e){
+        console.log(e)
+        data = {images: [], artists: {}}
+        console.log('JSON Not Found')
+    }
+    
+    
 
     createArtistList("artistSelect")
     createArtistList("artistNameSelect", true)
 
     document.getElementById('artistName').value = document.getElementById('artistNameSelect').value
+    if(document.getElementById('artistNameSelect').value === "new") document.getElementById('artistName').value = ""
     document.getElementById('iconValue').value = document.getElementById('icon').value    
 
     document.getElementById('fileInput').addEventListener('change', handleFileSelect)
@@ -83,7 +96,7 @@ function next(){
 
 function option(select, place) {
     let value = document.getElementById(select).value
-    if(value === "other") {
+    if(value === "new") {
         document.getElementById(place).setAttribute('type', "text")
         document.getElementById(place).value = ""
     }
@@ -98,7 +111,8 @@ function iconOption() {
 function artistOption(){
     option('artistNameSelect', 'artistName')
     let value = document.getElementById('artistNameSelect').value
-    if(value == "other") {
+    console.log(value)
+    if(value == "new") {
         document.getElementById('addArtist').innerHTML= "Add Artist"
         document.getElementById('tag').value = ""
         document.getElementById('icon').value = ""
@@ -150,7 +164,7 @@ function addArtist(event) {
     console.log(key)
     let oldData = data.artists[key]
     let part2 = ""
-    if(select === "other") {
+    if(select === "new") {
         type = "New" 
         old = undefined
     }
@@ -203,16 +217,24 @@ function selectChange(){
 async function handleFileSelect(event){
     console.log(event)
     let fileList = event.target.files
+    console.log(fileList)
     console.log(fileList.length)
     let status = document.getElementById('status')
     let preview = document.getElementById('preview')
-    preview.setAttribute('src', path+fileList[fileList.length - 1].name)
-    preview.onload = function() {
-        status.innerHTML = ""
-    }
-    preview.onerror = function() {
+    let check = document.getElementById('check')
+    check.setAttribute('src', path+fileList[fileList.length - 1].name)
+    check.onerror = function() {
         status.innerHTML = statusVals.error[404]
     }
+    check.onload = function() {
+        status.innerHTML = ""
+    }
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        preview.src = e.target.result;
+    };
+    reader.readAsDataURL(fileList[0]);
+
     
     let select = document.getElementById('select')
     for(let file of fileList){
