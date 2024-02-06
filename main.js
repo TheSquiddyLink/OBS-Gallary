@@ -1,10 +1,7 @@
 import { sleep, animation, randomImage, getElements } from './OBS-Gall.js'
 
 
-window.onload = start()
-
-async function start() {
-
+window.onload = async function (){
     fetch('./config.json')
     .then(response => response.json())
     .then(async data => {
@@ -36,3 +33,5 @@ async function start() {
 
     
 }
+
+
