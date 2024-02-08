@@ -32,12 +32,17 @@ body {
 
 
 #handle {
-    padding-left: 2%;
+    margin-left: 10px;
     font-size: 27px;
 }
+.icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
 #icon {
-    margin-top: 50%;
     width: 35px;
+    height: 35px;
     display: inline-block;
 }
 
