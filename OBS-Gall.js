@@ -86,6 +86,7 @@ function randomImage(data, image, name, handle, icon){
         handle.innerHTML = artistData.tag
         icon.setAttribute("src", logoFolder+artistData.icon)
     } else {
+        console.log("No tag")
         handle.innerHTML = ""
         icon.setAttribute("src", "")
         // handle.innerHTML = "PLACEHOLDER"
