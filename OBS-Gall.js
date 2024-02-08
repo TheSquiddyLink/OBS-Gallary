@@ -85,10 +85,11 @@ function randomImage(data, image, name, handle, icon){
     if(!(artistData.tag === undefined)){
         handle.innerHTML = artistData.tag
         icon.setAttribute("src", logoFolder+artistData.icon)
+        icon.style.display = "inline-block"
     } else {
         console.log("No tag")
         handle.innerHTML = ""
-        icon.setAttribute("src", "")
+        icon.style.display = "none"
         // handle.innerHTML = "PLACEHOLDER"
         // icon.setAttribute("src", socials.tiktok)
     }
