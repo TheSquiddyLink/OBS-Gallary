@@ -5,10 +5,10 @@ const history = [];
 
 /**
  * @typedef {Object} elements
- * @property {HTMLImgElement} img
- * @property {HTMLH1Element} name
- * @property {HTMLPElement} handle
- * @property {HTMLImgElement} icon
+ * @property {HTMLElement} img - HTML Image element
+ * @property {HTMLElement} name - HTML Artist name element
+ * @property {HTMLElement} handle - HTML Artist handle element
+ * @property {HTMLElement} icon - HTML Artist icon element
  */
 
 /**
